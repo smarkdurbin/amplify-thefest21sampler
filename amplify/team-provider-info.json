@@ -1,0 +1,62 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-thefest21sampler-dev-132644-authRole",
+      "UnauthRoleArn": "arn:aws:iam::843286064964:role/amplify-thefest21sampler-dev-132644-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::843286064964:role/amplify-thefest21sampler-dev-132644-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-thefest21sampler-dev-132644-deployment",
+      "UnauthRoleName": "amplify-thefest21sampler-dev-132644-unauthRole",
+      "StackName": "amplify-thefest21sampler-dev-132644",
+      "StackId": "arn:aws:cloudformation:us-east-1:843286064964:stack/amplify-thefest21sampler-dev-132644/3a4c8b20-54b6-11ee-9db4-125b69b25e3b",
+      "AmplifyAppId": "d3zhphlbcqt9j"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3zhphlbcqt9j",
+          "type": "cicd"
+        }
+      },
+      "function": {
+        "thefest21samplerFetchPerformers": {
+          "deploymentBucketName": "amplify-thefest21sampler-dev-132644-deployment",
+          "s3Key": "amplify-builds/thefest21samplerFetchPerformers-3144367246706f6a4642-build.zip"
+        }
+      },
+      "custom": {
+        "thefest21samplerPerformersStorage": {}
+      }
+    }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-thefest21sampler-prod-03934-authRole",
+      "UnauthRoleArn": "arn:aws:iam::843286064964:role/amplify-thefest21sampler-prod-03934-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::843286064964:role/amplify-thefest21sampler-prod-03934-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-thefest21sampler-prod-03934-deployment",
+      "UnauthRoleName": "amplify-thefest21sampler-prod-03934-unauthRole",
+      "StackName": "amplify-thefest21sampler-prod-03934",
+      "StackId": "arn:aws:cloudformation:us-east-1:843286064964:stack/amplify-thefest21sampler-prod-03934/33b5bf80-5514-11ee-8a89-0e9ad4d9549b",
+      "AmplifyAppId": "d3zhphlbcqt9j"
+    },
+    "categories": {
+      "function": {
+        "thefest21samplerFetchPerformers": {
+          "deploymentBucketName": "amplify-thefest21sampler-prod-03934-deployment",
+          "s3Key": "amplify-builds/thefest21samplerFetchPerformers-3144367246706f6a4642-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3zhphlbcqt9j",
+          "type": "cicd"
+        }
+      },
+      "custom": {
+        "thefest21samplerPerformersStorage": {}
+      }
+    }
+  }
+}
