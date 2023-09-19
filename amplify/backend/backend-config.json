@@ -1,4 +1,20 @@
 {
+  "api": {
+    "performersApi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "thefest21samplerReadPerformers"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "thefest21sampler7d3d1b89": {
       "customAuth": false,
@@ -38,6 +54,11 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "thefest21samplerReadPerformers": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "hosting": {
@@ -61,6 +82,22 @@
         {
           "category": "function",
           "resourceName": "thefest21samplerFetchPerformers"
+        }
+      ]
+    },
+    "AMPLIFY_function_thefest21samplerReadPerformers_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "thefest21samplerReadPerformers"
+        }
+      ]
+    },
+    "AMPLIFY_function_thefest21samplerReadPerformers_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "thefest21samplerReadPerformers"
         }
       ]
     },

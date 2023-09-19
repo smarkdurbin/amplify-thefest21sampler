@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-thefest21sampler-dev-132644-unauthRole",
       "StackName": "amplify-thefest21sampler-dev-132644",
       "StackId": "arn:aws:cloudformation:us-east-1:843286064964:stack/amplify-thefest21sampler-dev-132644/3a4c8b20-54b6-11ee-9db4-125b69b25e3b",
-      "AmplifyAppId": "d3zhphlbcqt9j"
+      "AmplifyAppId": "d3zhphlbcqt9j",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-thefest21sampler-dev-132644-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "hosting": {
@@ -22,6 +23,10 @@
         "thefest21samplerFetchPerformers": {
           "deploymentBucketName": "amplify-thefest21sampler-dev-132644-deployment",
           "s3Key": "amplify-builds/thefest21samplerFetchPerformers-76376c44614436336959-build.zip"
+        },
+        "thefest21samplerReadPerformers": {
+          "deploymentBucketName": "amplify-thefest21sampler-dev-132644-deployment",
+          "s3Key": "amplify-builds/thefest21samplerReadPerformers-352f6b6963792b355747-build.zip"
         }
       },
       "custom": {
@@ -29,6 +34,9 @@
       },
       "auth": {
         "thefest21sampler7d3d1b89": {}
+      },
+      "api": {
+        "performersApi": {}
       }
     }
   },

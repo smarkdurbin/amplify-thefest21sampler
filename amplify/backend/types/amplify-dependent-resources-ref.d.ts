@@ -1,4 +1,11 @@
 export type AmplifyDependentResourcesAttributes = {
+  "api": {
+    "performersApi": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    }
+  },
   "auth": {
     "thefest21sampler7d3d1b89": {
       "AppClientID": "string",
@@ -15,6 +22,13 @@ export type AmplifyDependentResourcesAttributes = {
     "thefest21samplerFetchPerformers": {
       "Arn": "string",
       "CloudWatchEventRule": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "thefest21samplerReadPerformers": {
+      "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",

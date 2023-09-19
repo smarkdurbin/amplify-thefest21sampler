@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/performers": {
+      "name": "/performers",
+      "lambdaFunction": "thefest21samplerReadPerformers",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "read"
+        ],
+        "guest": [
+          "read"
+        ]
+      }
+    }
+  }
+}
