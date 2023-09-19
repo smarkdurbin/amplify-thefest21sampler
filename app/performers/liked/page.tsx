@@ -4,6 +4,7 @@ import PerformerList from "../_components/PerformerList";
 import withLoading, { WithLoadingProps } from "../../_components/withLoading";
 import Performer from "../_types/Performer";
 import {
+  Box,
   Button,
   Center,
   Container,
@@ -77,15 +78,28 @@ const LikedPerformers = ({ setIsLoading }: LikedPerformersProps) => {
         <Heading as="h2">Liked performers</Heading>
       </VisuallyHidden>
       {likedPerformers?.length ? (
-        <PerformerList
-          likedPerformerIds={likedPerformerIds ?? []}
-          performers={likedPerformers}
-          performerUnlikeCallback={(performerId) =>
-            setLikedPerformers((prev) =>
-              prev?.filter(({ id }) => performerId !== id)
-            )
-          }
-        />
+        <>
+          <Box backgroundColor="whiteAlpha.200" paddingY={2}>
+            <Text
+              fontFamily="Oswald"
+              fontSize="small"
+              textAlign="center"
+              textTransform="uppercase"
+            >
+              You like ({likedPerformers?.length}) performer
+              {likedPerformers?.length > 1 ? "s" : ""}
+            </Text>
+          </Box>
+          <PerformerList
+            likedPerformerIds={likedPerformerIds ?? []}
+            performers={likedPerformers}
+            performerUnlikeCallback={(performerId) =>
+              setLikedPerformers((prev) =>
+                prev?.filter(({ id }) => performerId !== id)
+              )
+            }
+          />
+        </>
       ) : (
         <Center height="100%" width="100%">
           <Container>
