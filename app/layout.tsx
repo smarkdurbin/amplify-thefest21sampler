@@ -3,7 +3,7 @@ import { Providers } from "./providers";
 import App from "./_components/App";
 
 export const metadata: Metadata = {
-  title: "The Fest 21 (Unofficial) Sampler",
+  title: "The Fest 21 Unofficial Sampler",
   description: "This site is not affiliated with the The Fest",
 };
 

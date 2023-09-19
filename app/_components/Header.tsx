@@ -25,7 +25,7 @@ const Header = ({ ...rest }: HeaderProps) => {
           textAlign="center"
           textTransform="uppercase"
         >
-          The Fest 21 (Unofficial) Sampler
+          The Fest 21 Unofficial Sampler
         </Heading>
       </Container>
     </Box>
