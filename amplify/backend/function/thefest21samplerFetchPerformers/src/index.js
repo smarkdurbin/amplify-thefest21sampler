@@ -7,8 +7,11 @@ const s3 = new AWS.S3();
 // URL of the API
 const apiUrl = "https://api.thefestfl.com/fest21/events";
 
+// Get the AWS account ID
+const awsAccountId = AWS.config.credentials.accountId;
+
 // Bucket name
-const bucketName = "thefest21sampler-performers";
+const bucketName = ["thefest21sampler-performers", process.env.ENV, awsAccountId].join("-");
 
 exports.handler = async (event, context) => {
   try {
@@ -22,7 +25,8 @@ exports.handler = async (event, context) => {
     if (!Array.isArray(json)) throw "API did not return an array";
     if (typeof json[0] !== "object")
       throw "First item in API response is not an object";
-    if (!json[0].hasOwnProperty("event_id")) throw "API is not returning events";
+    if (!json[0].hasOwnProperty("event_id"))
+      throw "API is not returning events";
 
     // Filter performers
     const performers = await filterPerformersFromEvents(json);
@@ -93,7 +97,7 @@ filterPerformersFromEvents = (events) => {
 
 function uploadDataToS3(data) {
   const params = {
-    Bucket: [bucketName, process.env.ENV].join("-"),
+    Bucket: bucketName,
     Key: "performers.json",
     Body: data,
     ContentType: "application/json",
