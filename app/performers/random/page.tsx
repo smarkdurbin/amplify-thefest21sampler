@@ -180,9 +180,7 @@ const Random = ({ setIsLoading }: RandomProps) => {
               >
                 <PerformerLikeButton
                   iconOnly={true}
-                  liked={
-                    likedPerformerIds?.includes(randomPerformer.id) ?? undefined
-                  }
+                  liked={undefined}
                   performerId={randomPerformer.id}
                   size="sm"
                   transform="scale(2)"
