@@ -1,10 +1,17 @@
 import axios from "axios";
+import { Auth } from "aws-amplify";
 
 const getPerformers = async () => {
   try {
+    // Define env
+    const env = "dev";
+
+    // Define AWS account ID
+    const awsAccountId = "843286064964";
+
     // Make a GET request to the external API endpoint
     const response = await axios.get(
-      "https://thefest21sampler-performers-dev.s3.amazonaws.com/performers.json"
+      `https://thefest21sampler-performers-${env}-${awsAccountId}.s3.amazonaws.com/performers.json`
     );
 
     // Check if the response status is OK (status code 200)

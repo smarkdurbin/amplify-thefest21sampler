@@ -34,7 +34,7 @@
           ]
         },
         "BucketName": {
-          "Fn::Sub": "thefest21sampler-performers-${env}"
+          "Fn::Sub": "thefest21sampler-performers-${env}-${AWS::AccountId}"
         },
         "PublicAccessBlockConfiguration": {
           "BlockPublicAcls": false,
