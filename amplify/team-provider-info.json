@@ -21,7 +21,7 @@
       "function": {
         "thefest21samplerFetchPerformers": {
           "deploymentBucketName": "amplify-thefest21sampler-dev-132644-deployment",
-          "s3Key": "amplify-builds/thefest21samplerFetchPerformers-3144367246706f6a4642-build.zip"
+          "s3Key": "amplify-builds/thefest21samplerFetchPerformers-76376c44614436336959-build.zip"
         }
       },
       "custom": {
