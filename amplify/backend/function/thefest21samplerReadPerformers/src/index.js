@@ -1,59 +1,55 @@
 const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
+const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
 
-// Define bucket name
-const bucketName = "thefest21sampler-performers-dev-843286064964";
-
-// Define object key
-const objectKey = "performers.json";
-
-// Create an S3 client
 const s3Client = new S3Client();
+const stsClient = new STSClient();
 
-exports.handler = async (event) => {
+exports.handler = async (event, context) => {
+  const input = {};
+  const command = new GetCallerIdentityCommand(input);
+  const response = await stsClient.send(command);
+
+  // AWS account ID
+  const awsAccountId = response.Account;
+
+  // Bucket name
+  const bucketName = [
+    "thefest21sampler-performers",
+    process.env.ENV,
+    awsAccountId,
+  ].join("-");
+
+  const objectKey = "performers.json"; // Replace with your JSON file name
+
   try {
-    // Define parameters for the GetObjectCommand
     const params = {
       Bucket: bucketName,
       Key: objectKey,
     };
 
-    // Send a GetObjectCommand to S3
-    const response = await s3Client.send(new GetObjectCommand(params));
+    const command = new GetObjectCommand(params);
+    const response = await s3Client.send(command);
 
-    // If the GetObjectCommand is successful, you can access the object data
-    const objectData = await streamToBuffer(response.Body);
-
-    console.log(objectData.toString("utf-8"));
+    const jsonContent = JSON.parse(await response.Body.transformToString());
 
     return {
       statusCode: 200,
-      // Uncomment below to enable CORS requests
+      body: JSON.stringify(jsonContent),
       headers: {
+        "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "*",
       },
-      body: JSON.stringify(objectData.toString("utf-8")),
     };
-  } catch (err) {
-    console.error("Error retrieving object from S3:", err);
+  } catch (error) {
     return {
       statusCode: 500,
-      // Uncomment below to enable CORS requests
+      body: JSON.stringify({ error: error.message }),
       headers: {
+        "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "*",
       },
-      body: JSON.stringify({ message: "Error retrieving object from S3" }),
     };
   }
 };
-
-// Helper function to convert a readable stream to a buffer
-async function streamToBuffer(stream) {
-  return new Promise((resolve, reject) => {
-    const chunks = [];
-    stream.on("data", (chunk) => chunks.push(chunk));
-    stream.on("error", reject);
-    stream.on("end", () => resolve(Buffer.concat(chunks)));
-  });
-}
