@@ -10,6 +10,7 @@ import withLoading, { WithLoadingProps } from "./withLoading";
 import getPerformers from "../performers/_functions/getPerformers";
 import getSeenRandomPerformerIds from "../performers/_functions/getSeenRandomPerformerIds";
 import getLikedPerformerIds from "../performers/_functions/getLikedPerformerIds";
+import useCurrentCredentials from "../performers/_hooks/useCurrentCredentials";
 
 interface AppProps extends FlexProps, WithLoadingProps {
   children: ReactNode;
@@ -22,8 +23,14 @@ const App = ({ children, setIsLoading }: AppProps) => {
     state: { likedPerformerIds, performers, seenRandomPerformerIds },
   } = useGlobalState();
 
+  // Use current credentials
+  const credentials = useCurrentCredentials();
+
   // Hook
   useEffect(() => {
+    // If credentials null or undefined
+    if (credentials == null) return;
+
     // Get performers
     getPerformers().then((_performers) => {
       // Set state
@@ -34,7 +41,7 @@ const App = ({ children, setIsLoading }: AppProps) => {
       // Set state
       setState((prev) => ({ ...prev, performers: undefined }));
     };
-  }, [setState]);
+  }, [credentials, setState]);
 
   // Hook
   useEffect(() => {

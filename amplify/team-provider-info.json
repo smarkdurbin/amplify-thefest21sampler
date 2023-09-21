@@ -26,7 +26,7 @@
         },
         "thefest21samplerReadPerformers": {
           "deploymentBucketName": "amplify-thefest21sampler-dev-132644-deployment",
-          "s3Key": "amplify-builds/thefest21samplerReadPerformers-352f6b6963792b355747-build.zip"
+          "s3Key": "amplify-builds/thefest21samplerReadPerformers-75683470643562646c53-build.zip"
         }
       },
       "custom": {
