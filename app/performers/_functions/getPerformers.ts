@@ -4,7 +4,7 @@ const getPerformers = async () => {
   try {
     // Make a GET request to the external API endpoint
     const response = await axios.get(
-      "https://thefest21sampler-performers-dev.s3.amazonaws.com/performers.json"
+      "https://thefest21sampler-performers-prod.s3.amazonaws.com/performers.json"
     );
 
     // Check if the response status is OK (status code 200)
