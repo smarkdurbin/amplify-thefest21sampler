@@ -1,0 +1,10 @@
+[
+  {
+    "Action": ["s3:PutObject"],
+    "Resource": [
+      {
+        "Fn::Sub": "arn:aws:s3:::thefest21sampler-performers-${env}-${AWS::AccountId}/performers.json"
+      }
+    ]
+  }
+]
