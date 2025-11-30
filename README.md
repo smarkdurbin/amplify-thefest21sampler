@@ -1,6 +1,6 @@
 # amplify-thefest21sampler
 
-[The Fest 21 Unnoficial Sampler](https://thefest21.unofficialsampler.app)
+NOTE: The Fest 21 Unnoficial Sampler is no longer live.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). The backend is built with [AWS Amplify](https://aws.amazon.com/amplify/https://aws.amazon.com/amplify/) tooling and it is also hosted on AWS Amplify.
 
